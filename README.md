@@ -156,4 +156,4 @@ function() {
 })
 ```
 
-© 本手册由 磨盘兄弟 @lzmoop 官方提供
+© 本手册由 磨盘兄弟 @lzmoop 官方提供 www.lzmoop.com
