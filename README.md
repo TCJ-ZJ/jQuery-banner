@@ -43,7 +43,8 @@
 ### 调用插件
 --参数可为空，全部参数请参考列表；可多次调用
 ```html
-	/*使用html5 datashu'xing属性进行传参*/
+	// 使用html5 datashu'xing属性进行传参,优先级大于js传参 
+	
 	<div id="banner" data-param='{"effect":"fade","interval":3000}'></div>
 ```
 
