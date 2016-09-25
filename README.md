@@ -45,7 +45,7 @@
 ```html
 	<!-- 使用html5 data属性进行传参,优先级大于js传参 -->
 	
-	<div id="banner" data-param='{"effect":"fade","interval":3000}'></div>
+	<div id="banner" data-banner-param='{"effect":"fade","interval":3000}'></div>
 ```
 
 ```javascript
