@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<title>jQuery轮播插件 作者：lzmoop(磨盘兄弟) </title>
 		<script src='js/jquery-1.11.1.min.js'></script>
-		<script src="js/jquery-banner.2.3.0.min.js"></script>
+		<script src="js/jquery-banner.2.3.1.min.js"></script>
 		<link rel="stylesheet" href="css/reset-min.css">
 		<link rel="stylesheet" href="css/jquery-banner.css">
 		<style>
@@ -47,7 +47,7 @@
 
 <!--  **************************** 以下是banner部分 ********************************************* -->
 
-		<div id="banner" class="banner">
+		<div id="banner" class="banner" >
 			<ul>
 				<li><img src="images/01.png"></li>
 				<li><img src="images/02.png"></li>
@@ -63,7 +63,7 @@
 		</footer>
 		<script>
 			$(function(){
-				$("#banner").banner({event:['btn','wheel','keyboard']});
+				$(".banner").banner({event:['btn','wheel','keyboard'],interval:2000,speed:1000});
 			})
 			/* 本插件由@lzmoop(磨盘兄弟)提供 */
 		</script>
