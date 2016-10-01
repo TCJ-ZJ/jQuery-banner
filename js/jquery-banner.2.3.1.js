@@ -1031,16 +1031,16 @@
 
 		// 循环遍历添加banner方法
 		$.each(me,function(index, val) {
+			
+			val.bannerexcute = new bannerMethods(val);
+
+			val.bannereffect = new bannerEffect(val);
 
 			var newBanner = new bannerInit(val, a, b, c, d);
 
 			newBanner.initEvent();
 
 			newBanner.layout();
-
-			val.bannerexcute = new bannerMethods(val);
-
-			val.bannereffect = new bannerEffect(val);
 
 		});
 
