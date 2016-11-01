@@ -108,8 +108,8 @@
 
 **2.调用接口**
 ```javascript
-/*调用接口时，推荐使用需要操作的轮播图对象进行*/
-var k=$('.banner').bannerTool();
+/*调用接口时，可以使用空的jQuery对象进行初始化*/
+var k=$().bannerTool();
 
 /*
 *调用添加动画的函数
@@ -160,6 +160,8 @@ function() {
         }
     });
 })
+
+
 ```
 
 © 本手册由 磨盘兄弟 @lzmoop 官方提供 www.lzmoop.com
