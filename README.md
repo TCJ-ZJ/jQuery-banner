@@ -51,21 +51,21 @@
 ```javascript
 <script type="javascript">
     <!--
-        $('#banner1').banner('fade',3000,600) //效果 间隔时间 运行速度 
-		$('#banner2').banner('left','fast','medium') //方向 间隔时间 运行速度
+        $('#banner1').lzbanner('fade',3000,600) //效果 间隔时间 运行速度 
+	$('#banner2').lzbanner('left','fast','medium') //方向 间隔时间 运行速度
 
         /* 或使用对象传参 */
 
-        $('#banner3').banner({
+        $('#banner3').lzbanner({
             effect : 'fade' ,
             interval : 3000 ,
             speed : 600 ,
             auto : true ,//默认自动
             cycle : true//默认循环
         })
-		$('#banner4').banner({
+	$('#banner4').lzbanner({
             effect : ['fade','defaults','fade'],
-			event : ['btn','arrow','wheel'] ,
+	    event : ['btn','arrow','wheel'] ,
             interval : 3000 ,
             speed : 600 ,
             auto : true ,//默认自动
