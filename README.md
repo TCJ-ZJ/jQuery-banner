@@ -1,8 +1,8 @@
-## jQuery-banner使用手册
+## lz-banner使用手册
 **当前版本： V2.3.1 developer**
 
-### jQuery-banner是什么
->jQuery-banner是一款基于jQuery库开发的轻量级轮播插件，方便开发者快速完成针对页面轮播效果的开发，并获得不同的轮播效果。例如，水平滑动或垂直滑动，以及淡出淡入或切换等！（适用于常规banner、照片大图预览幻灯片切换效果、滚屏效果等）此插件的当前版本为 V2.3.1 开发者版。
+### lz-banner是什么
+>lz-banner是一款基于jQuery库开发的轻量级轮播插件，方便开发者快速完成针对页面轮播效果的开发，并获得不同的轮播效果。例如，水平滑动或垂直滑动，以及淡出淡入或切换等！（适用于常规banner、照片大图预览幻灯片切换效果、滚屏效果等）此插件的当前版本为 V2.3.1 开发者版。
 
 ### 具体参数列表
 
@@ -15,8 +15,8 @@
 | 动画速度          |`speed`      |'[slow]' / '[medium]' / '[fast]' / '[number]' |控制动画的执行速度，本参数为空时：默认值为 *medium* 即 *600ms*，**ps:当动画速度大于间隔时间时，会报错**    
 | 是否自动播放       |`auto`      |[true] / [false]  								|控制动画是否自动播放，本参数为空时：默认值为 *true*	
 | 是否循环          |`cycle`      |[true] / [false]  							|控制动画是否循环播放，本参数为空时：默认值为 *true*	
-| 焦点按钮样式命名   |`btnCls`     |[焦点按钮盒子] / [焦点按钮] / [焦点按钮选中样式]	|控制焦点按钮的样式，本参数为空时：默认值为 *['jquery-bannerPoint-box', 'jquery-bannerPoint', 'jquery-bannerPoint-point', 'jquery-bannerPoint-hover']*	
-| 左右控件样式命名   |`arrowCls`   |[箭头盒子] / [左箭头] / [右箭头]					|控制左右控件的样式，本参数为空时：默认值为 *['jquery-bannerBtn', 'jquery-bannerBtn-left', 'jquery-bannerBtn-right']*
+| 焦点按钮样式命名   |`btnCls`     |[焦点按钮盒子] / [焦点按钮] / [焦点按钮选中样式]	|控制焦点按钮的样式，本参数为空时：默认值为 *['lz-bannerPoint-box', 'lz-bannerPoint', 'lz-bannerPoint-point', 'lz-bannerPoint-hover']*	
+| 左右控件样式命名   |`arrowCls`   |[箭头盒子] / [左箭头] / [右箭头]					|控制左右控件的样式，本参数为空时：默认值为 *['lz-bannerBtn', 'lz-bannerBtn-left', 'lz-bannerBtn-right']*
 | 是否添加默认箭头样式|`arrowStyle`|[true] / [false]								|控制左右控件是否添加<>样式，本参数为空时： 默认值为：*true*
 
 
@@ -24,8 +24,8 @@
 --此插件基于jQuery开发
 ```HTML
 <script src="js/jquery-11.1.1.min.js"></script>
-<script src="js/jquery-banner.2.3.0.min.js"></script>
-<link href="css/jquery-banner.css" rel="stylesheet" type="text/css">
+<script src="js/lz-banner.2.3.0.min.js"></script>
+<link href="css/lz-banner.css" rel="stylesheet" type="text/css">
 ```	
 
 ### HTML代码片段
@@ -78,14 +78,14 @@
 ### 提供的css选择器
 --自定义样式时请带上外层父级id，避免同一页面多个组件样式冲突
 ```css
-.jquery-bannerImg  /* banner外层框架 */
-.jquery-bannerImg-images  /* banner的运动层 */
-.jquery-bannerBtn  /* banner左右控件的盒子 */
-.jquery-bannerBtn-left  /* banner的向左控件 */
-.jquery-bannerBtn-right  /* banner的向右控件 */
-.jquery-bannerPoint  /* banner的焦点按钮盒子 */
-.jquery-bannerPoint-point  /* banner的焦点按钮 */
-.jquery-bannerPoint-hover  /* 控制banner的焦点按钮选中时的样式 */
+.lz-bannerImg  /* banner外层框架 */
+.lz-bannerImg-images  /* banner的运动层 */
+.lz-bannerBtn  /* banner左右控件的盒子 */
+.lz-bannerBtn-left  /* banner的向左控件 */
+.lz-bannerBtn-right  /* banner的向右控件 */
+.lz-bannerPoint  /* banner的焦点按钮盒子 */
+.lz-bannerPoint-point  /* banner的焦点按钮 */
+.lz-bannerPoint-hover  /* 控制banner的焦点按钮选中时的样式 */
 ```
 
 ### 自定义效果函数和事件函数
