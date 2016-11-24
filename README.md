@@ -63,6 +63,7 @@
             auto : true ,//默认自动
             cycle : true//默认循环
         })
+	
 	$('#banner4').lzbanner({
             effect : ['fade','defaults','fade'],
 	    event : ['btn','arrow','wheel'] ,
