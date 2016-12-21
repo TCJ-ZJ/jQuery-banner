@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<title>jQuery轮播插件 作者：lzmoop(磨盘兄弟) </title>
 		<script src='js/jquery-1.11.1.min.js'></script>
-		<script src="js/lz-banner-2.3.1.min.js"></script>
+		<script src="js/2.5.1.js"></script>
 		<link rel="stylesheet" href="css/reset-min.css">
 		<link rel="stylesheet" href="css/lz-banner.css">
 		<style>
@@ -13,8 +13,8 @@
 			.inPageHader{width:1024px;height:52px;line-height:52px;margin:0 auto;}
 			#pageHader h1{color:#fff;}
 			#pageHader h3 a{color:#fff;}#pageHader h3 a:hover{color:#ff0;text-decoration:none;}
-			#banner{width:990px;height:360px;margin: 0 auto;position: relative; padding:16px;background:#fff;}
-			.banner>ul:first-child{width:990px;height:360px;position:absolute;overflow:hidden;}
+			#banner{width:600px;height:220px;margin: 0 auto;position: relative; padding:16px;background:#fff;}
+			.banner>ul:first-child{width:600px;height:220px;position:absolute;overflow:hidden;}
 			.bannerTitle{width: 1024px;margin:0 auto; color:#ffbc3a;margin-bottom:15px}
 			
 			.page{width:1000px;border:2px solid #f3c562;line-height:32px;margin:20px auto 0;padding:12px;background:#fff3a2;}
@@ -57,15 +57,97 @@
 
 <!--  ***************************** 以上是banner部分 ******************************************* -->
 
+	<div class="control">
+		<section><button id="getIndex">获取当前张数</button>当前张数为：<span></span></section>
+		<section><button id='setIndex'>到第几张</button><input type="text"></section>
+		<section><button id="prev">上一张</button><button id="next">下一张</button></section>
+		<section><button id="setInterval">设置间隔时间</button><input type="text"></section>
+		<section><button id="setSpeed">设置速度</button><input type="text"></section>
+		<section><button id="setEffect">设置效果</button><input type="radio" name='effect' value='defaults'>默认 <input type="radio" name='effect' value='fade'>淡入 <input type="radio" name='effect' value='cut'>切入</section>
+		<section><button id="setDirection">设置方向</button><input type="radio" name='dir' value='left'>向左 <input type="radio" name='dir' value='right'>向右 <input type="radio" name='dir' value='up'>向上<input type="radio" name='dir' value='down'>向下</section>
+		<section><button id="start">开启自动轮播</button><button id="stop">关闭自动轮播</button></section>
+		<section><button id="onCycle">开启循环</button><button id="offCycle">关闭循环</button></section>
+	</div>
+
 		<footer id='foot'>
 			<p>本插件手册由 @lzmoop(磨盘兄弟) 提供</p>
 			<p>jQuery-banner v2.3.0 | (c) 2016-2025  jQuery plug-in | lzmoop 2016-7</p>
 		</footer>
 		<script>
-			$(function(){
-				$(".banner").lzbanner({event:['btn','wheel','keyboard'],interval:2000,speed:1000});
-			})
-			/* 本插件由@lzmoop(磨盘兄弟)提供 */
+				var k = $(".banner").lzbanner({dir:'up',event:['btn','wheel','keyboard','arrow']});
+
+				$('#getIndex').on('click', function() {
+					
+					$(this).next().text(k.index());
+					
+				});
+
+				$('#setIndex').on('click', function() {
+					
+					k.index($(this).next().val());	
+
+				})
+
+				$('#next').on('click', function() {
+					
+					k.next();
+
+				});
+
+				$('#prev').on('click', function() {
+					
+					k.prev();
+
+				});
+
+				$('#setInterval').on('click', function() {
+					
+					k.setInterval($(this).next().val());
+
+				})
+
+				$('#setSpeed').on('click', function() {
+					
+					k.setSpeed($(this).next().val())
+
+				});
+
+				$('#setEffect').on('click', function() {
+					
+					k.setEffect($("input[name='effect']:checked").val())
+
+				});
+
+				$('#setDirection').on('click', function() {
+					
+					k.setDirection($("input[name='dir']:checked").val())
+
+				});
+
+				$('#start').on('click', function() {
+					
+					k.start();
+
+				});
+
+				$('#stop').on('click', function() {
+					
+					k.stop();
+
+				});
+
+				$('#onCycle').on('click', function() {
+					
+					k.onCycle();
+
+				});
+
+				$('#offCycle').on('click', function() {
+					
+					k.offCycle()
+
+				});
+
 		</script>
 	</body>
 </html>
