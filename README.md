@@ -1,8 +1,8 @@
 ## lz-banner使用手册
-**当前版本： V2.3.1 developer**
+**当前版本： V2.4.1 developer**
 
 ### lz-banner是什么
->lz-banner是一款基于jQuery库开发的轻量级轮播插件，方便开发者快速完成针对页面轮播效果的开发，并获得不同的轮播效果。例如，水平滑动或垂直滑动，以及淡出淡入或切换等！（适用于常规banner、照片大图预览幻灯片切换效果、滚屏效果等）此插件的当前版本为 V2.3.1 开发者版。
+>lz-banner是一款基于jQuery库开发的轻量级轮播插件，方便开发者快速完成针对页面轮播效果的开发，并获得不同的轮播效果。例如，水平滑动或垂直滑动，以及淡出淡入或切换等！（适用于常规banner、照片大图预览幻灯片切换效果、滚屏效果等）此插件的当前版本为 V2.4.1 开发者版。
 
 ### 具体参数列表
 
@@ -24,7 +24,7 @@
 --此插件基于jQuery开发
 ```HTML
 <script src="js/jquery-11.1.1.min.js"></script>
-<script src="js/lz-banner.2.3.0.min.js"></script>
+<script src="js/lz-banner.2.4.1.min.js"></script>
 <link href="css/lz-banner.css" rel="stylesheet" type="text/css">
 ```	
 
@@ -53,8 +53,9 @@
     <!--
         $('#banner1').lzbanner('fade',3000,600) //效果 间隔时间 运行速度 
 	$('#banner2').lzbanner('left','fast','medium') //方向 间隔时间 运行速度
-
-        /* 或使用对象传参 */
+	$('#banner3').lzbanner(fn) //切换时执行的函数
+	
+        /* 或使用对象传参 */
 
         $('#banner3').lzbanner({
             effect : 'fade' ,
@@ -89,8 +90,8 @@
 .lz-bannerPoint-hover  /* 控制banner的焦点按钮选中时的样式 */
 ```
 
-### 自定义效果函数和事件函数
---此版本为开发者版，提供接口为开发者自行添加动画效果和事件监听
+### 自定义效果函数
+--此版本为开发者版，提供接口为开发者自行添加动画效果
 
 **1.提供参数说明**
 
@@ -109,60 +110,46 @@
 
 **2.调用接口**
 ```javascript
-/*调用接口时，可以使用空的jQuery对象进行初始化*/
-var k=$().bannerTool();
+
+$.addBannerEffect(name,fn)
 
 /*
 *调用添加动画的函数
-*param1为动画效果名称，此处填写的名称将用于调用时的effect参数
-*param2为function，即具体动画效果
+*name为动画效果名称，此处填写的名称将用于调用时的effect参数
+*fn，即具体动画效果函数
 */
-
-k.addEffect(param1,param2)
 
 /*该示例为添加淡入淡出的效果*/
 
-k.addEffect('fade',function(){
-	this.img.eq(this.status.cPoint).css({zIndex:35,display:'none'}).fadeIn(this.param.speed);
+$.addBannerEffect('fade',function(){
+	this.img.eq(this.status.cPoint).css({top:0,left:0,zIndex:35,display:'none'}).fadeIn(this.param.speed);
 })
-
-/*
-*调用添加事件监听的函数
-*param1为事件名称，此处填写的名称将用于调用时的event参数
-*param2为function，即具体事件函数
-*/
-
-k.addEvent(param1,param2)
-
-/*
-*该示例为添加滚轮的事件监听
-*监听后的结果为改变status.cPoint的值(下一张即为：status.cPoint++,反之，status.cPoint++)
-*而后调用this.obj.bannerExcute()即可
-*推荐将所有提供的变量保存为局部变量，比如 var me = this.obj; var param = this.param;
-*/
-k.addEvent('wheel',
-function() {
-    var me = this.obj,
-    status = this.status;
-    param = this.param;
-    me.on('mousewheel DOMMouseScroll',
-    function(e) { //添加滚轮事件
-        if (status.flag && status.mouseH) {
-            e.preventDefault();
-            var delta = (e.originalEvent.wheelDelta && (e.originalEvent.wheelDelta > 0 ? 1 : -1)) || // chrome & ie
-            (e.originalEvent.detail && (e.originalEvent.detail > 0 ? -1 : 1)); // firefox   
-            if (delta > 0) {
-                status.cPoint--;
-            } else if (delta < 0) {
-                status.cPoint++;
-            }
-            me.bannerExcute();
-
-        }
-    });
-})
-
 
 ```
+
+###回调方法
+```javascript
+	//调用方式	
+	var tool = $('#lzbanner').lzbanner(); //调用插件并获得回调方法集
+	var tool =  $('#lzbanner').bannerTool(); //获得该元素的回调方法集
+	
+	//回调方法
+	tool.index() //获得当前张的下标	
+	tool.index(num) //到指定张	
+	tool.next() //到下一张	
+	tool.prev(num) // 到上一张	
+	tool.setInterval(num) //设置轮播间隔	
+	tool.setSpeed(num) //设置轮播速度	
+	tool.setEffect(str|arr) //设置轮播效果	
+	tool.setDirection(str) //设置轮播方向	
+	tool.start() //开启自动播放	
+	tool.stop() //关闭自动播放	
+	tool.onCycle()//开启循环播放	
+	tool.offCycle()//关闭循环播放	
+	tool.init({}) //初始化轮播图	
+	tool.on('switch',fn) //添加切换的时候执行的函数
+	tool.on('last',fn) //添加到达最后一张时执行的函数
+```
+
 
 © 本手册由 磨盘兄弟 @lzmoop 官方提供 www.lzmoop.com
