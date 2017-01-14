@@ -1,5 +1,4 @@
 #lz-banner
-@(jQuery-plugin)[lzmoop,banner,jQuery,plugin]
 
 **lz-banner**是一款基于jQuery库开发的轮播图插件，方便开发者快速完成针对页面轮播效果的开发，并获得不同的轮播效果。
 - **多场景**：适用于常规banner,照片大图预览幻灯片切换,滚屏等场景
@@ -10,8 +9,6 @@
 **轮播机制为单张的操作，需要进行多张轮播可以使用[lz-slider](https://github.com/TCJ-ZJ/lz-slider)**
 
 ------
-
-[TOC]
 
 ##调用说明
 ###引入文件
